@@ -1,14 +1,24 @@
-//SPDX-License-Identifier : MIT
-pragma solidity >=0.8.0;
+//SPDX-License-Identifier : MIT;
 
-contract storage_Contract {
-    uint storeData;
+pragma solidity ^0.8.0;
 
-    function set(uint x) public {
-        storeData = x;
-    }
+//someone will be able to enter a number in the function.
+//There will be a name associated with each of the insertion.
+//There will be a array, which will then fetch all those people who have inserted anything in the function.
 
-    function get() public view returns (uint) {
-        return storeData;
-    }
+contract fund {
+
+string[] public contributors;
+uint[] public cash;
+
+function insert_Amount(uint256 value,string memory name) public {
+    cash.push(value);
+    contributors.push(name);
 }
+
+function get_Data(uint index) public view returns(uint256,string memory) {
+   require(index < contributors.length && index < cash.length,"Array Index is out of bound");
+   return( cash[index] ,contributors[index]);
+}
+
+} 
