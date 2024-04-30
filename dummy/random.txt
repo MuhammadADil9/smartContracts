@@ -1,0 +1,26 @@
+//SPDX-License-Identifer : MIT
+pragma solidity ^0.8.0;
+
+import * as object from "./contract.sol";
+
+contract second{
+
+    object.fund public fundContract;
+
+    constructor(address deployed ){
+        fundContract = object.fund(deployed);
+    }
+
+    function donate(int256 amount,string memory name) public {
+        fundContract.donate(amount,name);
+    }
+
+    function  collectAmount() public {
+        fundContract.collect();
+    }   
+
+    function  total() public {
+        fundContract.returnTotal();
+    }   
+
+} 

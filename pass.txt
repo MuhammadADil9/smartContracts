@@ -1,0 +1,175 @@
+Original Smart contract
+
+Deployer: 0x15d34AAf54267DB7D7c367839AAf71A00a2C6A65
+Deployed to: 0xbdEd0D2bf404bdcBa897a74E6657f1f12e5C6fb6
+
+
+2nd smart contract 
+
+Deployer: 0x9965507D1a55bcC2695C58ba16FB37d819B0A4dc
+Deployed to: 0x0116686E2291dbd5e317F47faDBFb43B599786Ef
+
+
+
+
+tester 
+
+
+1st
+0x47e179ec197488593b187f80a00eb0da91f1b9d0b13f8733639f19c30a34926a
+
+2nd
+0x8b3a350cf5c34c9194ca85829a2df0ec3153be0318b5e2d3348e872092edffba
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// contract Donate {
+
+//     // uint256 public collectibleAmount;
+//     uint256 internal counter = 0;
+//     address payable internal deployer;
+//     event Transaction(address sender, uint256 amount, string name);
+
+//     constructor(){
+//         deployer = payable(msg.sender);
+//     }
+
+//     function donate(string memory name,address value ) external payable {
+        
+//         if(msg.value < 5 ether){
+//             revert("Please, Increase the Amount to Sufficient Limit");  
+//         }
+//         emit Transaction(value,msg.value,name);
+//     }  
+
+
+//     function collect(address value) external {
+//         if(value != deployer){
+//             revert("Amount is only collectable by the owner");
+//         }
+//         else if(address(this).balance < 0){
+//             revert("No ammount to collect");
+//         }
+
+//         //Transfering the owner all of the collected amount
+//         deployer.transfer(address(this).balance);
+
+//     }
+
+// // Check the balance of contract
+//     function contractBalance(address value) external view returns (uint256){
+//         address temp = value;
+//         if(value != deployer){
+//             revert("Amount is only collectable by the owner");
+//         }
+//         return address(this).balance;
+//     }
+
+// // Check the balance of the Deployer/ Owner.
+//     function balance(address value) external view returns (uint256) {
+//         address temp = value;
+//         if(value != deployer){
+//             revert("Amount is only collectable by the owner");
+//         }
+//         return deployer.balance;
+//     }
+
+
+
+// } 
+
+    // struct donator{
+    //     string donator_Name;
+    //     uint256 donator_Amount;
+    //     address donator_Address;
+    // }
+    // mapping(uint256 => donator) public donaters;
+    //storing the values within the struct
+    // currentDonator.donator_Name = name;
+    // currentDonator.donator_Amount = msg.value;
+    // currentDonator.donator_Address = temp;
+
+    // //Mapping with the values
+    // donaters[counter] = currentDonator;
+    // counter++;
+// //  Check the donator information
+//     function getDonater(uint256 index) external view returns (string memory, uint256, address){
+//         if(index < counter){
+//             revert("No Contribution Yet");
+//         }
+//         return (donaters[index].donator_Name, donaters[index].donator_Amount, donaters[index].donator_Address);
+//     }
+
+
+
+
+
+
+
+
+
+
+
+0x indicates that the request was successfull however there was no return value. 
+
+
+
+
+
+
+// Objective
+// A person is collecting money for his charity
+// Every person has the right to donete but no less than 5 ETH.
+
+// Requirements
+// There will be a mapping that will be able to store the name, address and the amount of the person who donated.
+// Use of mapping, struct, require(modifiers), events & second contract.
+// Amount at the end should be collectibale by the person who launched
+
+// Procedure
+// Array to be used for storing the amount, so that it can be emptied.
+// Counter will be used for storing the user contact information corresponding to the user information. 
+// when called the mapping with that index it will retrieve the user who sent the amount.
+// Counter will be used to map with the struct containing the amount, name & address
+
+// SPDX-License-Identifier: MIT
